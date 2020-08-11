@@ -1,0 +1,121 @@
+.footer{
+    min-height: 430px;
+    background: url(../images/footerWithBg.png);
+    @include bg;
+
+    &-inner{
+        @include flex(null,space-between,null,null);
+    }
+    
+    &-contact{
+        margin-top: 21px;
+    }
+
+    &-contact-number,
+    &-contact-email{
+        p:nth-child(1){
+            @include text($gil,15px,null,none,$footerContact,400,25px);
+            letter-spacing: 0.38px;
+        }
+        p:nth-child(2){
+            @include text($gil,18px,null,none,$footerContactNum,400,25px);
+            letter-spacing: 0.45px;
+        }
+    }
+
+    &-contact-email{
+        margin: 16px 0 31px 0;
+    }
+
+    &-contact-link{
+        list-style: none;
+        li{
+            display: inline-block;
+            &:hover i{
+                color: #fff;
+            }
+        }
+
+        li:nth-child(n+2){
+            margin-left: 7px;
+        }
+
+        li:nth-child(1):hover a{
+            background-color: #1497ef;
+            border-color: #1497ef;
+        }
+
+        li:nth-child(2):hover a{
+            background-color: #51d0fd;
+            border-color: #51d0fd;
+        }
+
+        li:nth-child(3):hover a{
+            background-color: #3a6ec4;
+            border-color: #3a6ec4;
+        }
+
+    }
+
+    &-contact-link__item{
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        border: 1px solid $footerContactNum;
+        border-radius: 50%;
+        text-align: center;
+        @include text(null,16px,null,none,$footerLink,400,35px);
+    }
+
+    &-block{
+        margin-top: 65px;
+    }
+
+    &-block-form{width: 450px;
+        margin-left: auto;
+
+        input{
+            outline: none;
+        }
+
+        input[type="email"]{
+            width: 232px;
+            padding: 10px 0;
+            margin-right: 25px;
+            background-color: transparent;
+            border-color: transparent
+                          transparent
+                          #4b4b61
+                          transparent;
+            @include text($gil,15px,null,none,$footerMenu,700,null);
+        }
+
+        input[type="submit"]{
+            @include link;
+            padding: 7px 44px;
+            cursor: pointer;
+        }
+    }
+
+    &-block-link{
+        margin-top: 55px;
+        list-style: none;
+        li{
+            display: inline-block;
+            margin-left: 19px;
+        }
+    }
+
+    &-block-link__item{
+        @include text($gil,15px,null,none,$footerMenu,700,35px);
+    }
+
+
+    &-copyright{
+        margin-top: 21px;
+        @include text($gil,15px,null,none,$footerMenu,600,35px);
+        letter-spacing: 0.38px;
+        text-align: right;
+        word-spacing: 1px;
+    }
+}

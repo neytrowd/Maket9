@@ -1,0 +1,147 @@
+.timeline{
+    height: 2550px;
+    background: url(../images/timelineBg.png);
+    @include bg;
+
+    &__title{
+        @include title($timelineTitle,titleLine);
+        transform: translate(10px,-37px);
+    }
+
+    &-data{
+        width: 380px;
+        margin: 85px 0 0 auto;
+
+        &__info{
+            @include text($gil,28px,null,none,$timelineTitle,900,40px);
+            letter-spacing: 1.8px;
+            span:nth-child(1){
+                color: $timelineTimer;
+            }
+        }
+
+        &-timer{
+            @include flex(null,null,null,center);
+            img{
+                margin: 18px 45px 0 10px;
+            }
+        }
+
+        &-block{
+            position: relative;
+            @include text($gil,18px,null,none,$timelineTitle,700,28px);
+            margin-top: 15px;
+
+            &:before{
+                content: "";
+                @include position(absolute, 8px,null,null,-25px,null);
+                height: 43px;
+                width: 2px;
+                background-color: $timelineTitle;
+               
+            }
+
+            p:nth-child(2){
+                color: $timelineTimerDay;
+            }
+        }
+
+    }
+
+
+    &-block{
+        position: relative;
+
+        &:before{
+            content: "";
+            @include position(absolute,0,null,null, 50%,null);
+            transform: translateX(-55%);
+            width: 9px;
+            height: 108%;
+            background-color: #fff;
+            
+        }
+
+        &__line{
+            @include position(absolute,-75px,null,null, 49.5%,2);
+        }
+
+        &__milk{
+            @include position(absolute,-125px,null,null, 50.6%,null);
+        }
+
+        &__wave{
+            @include position(absolute,104.1%,null,null, 50%,null);
+            transform: translateX(-50%);
+        }
+
+        &__item{
+            width: 528px;
+            background-color: #fff;
+            padding: 40px 44px 23px 44px ;
+            border-radius: 3px;
+            position: relative;
+            margin-bottom: 1px;
+
+            &:before{
+                content: "";
+                @include position(absolute, 43%,null,null, 107.1%,2);
+                width: 37px;
+                height: 35px;
+                background: url(../images/timelineCircle.png);
+            }
+        }
+
+        &-date{
+            width: 140px;
+            @include position(absolute, 50%,null,null, 121.5%,3);
+            transform: translateY(-50%);
+
+            p:nth-child(1){
+                @include text($gil,18px,null,none,$timelineTitle,700,23px);
+            }
+
+            p:nth-child(2){
+                @include text($gil,15px,null,none,$timelineTitle,700,23px);
+            }
+        }
+
+        &__item:nth-of-type(even){
+            margin-left: auto;
+
+            &:before{
+                left: unset;
+                right: 107.5%;
+            }
+
+            .timeline-block-date{
+                text-align: right;
+                left: unset;
+                right: 121.5%;
+            }
+        }
+
+        &__item:nth-of-type(n+5){
+            padding-bottom: 17px;
+        }
+
+        &__title{
+            @include text($gil,28px,null,none,$timelineItemTitle,700,30px);
+            margin-bottom: 18px;
+        }
+
+        &__info{
+            @include text($gil,15px,null,none,$timelineTitle,400,25px);
+        }
+
+        a{
+            display: inline-block;
+            margin-top: -23px;
+            img{
+                margin-right: 10px;
+            }
+            @include text($gil,15px,null,none,$timelineTitle,600,25px);
+        }
+    }
+
+}

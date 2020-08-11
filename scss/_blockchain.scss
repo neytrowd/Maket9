@@ -1,0 +1,142 @@
+.blockchain{
+    background: url(../images/blockchainBg.png);
+    @include bg;
+
+    &__title{
+        @include title($productTitle,titleLine);
+        margin-top: 70px;
+    }
+
+    &-block{
+        @include flex(null,space-between,wrap,null);
+        margin-top: 110px;
+    }
+
+    &-block__item{
+        flex-basis: 373px;
+        min-height: 366px;
+        margin-bottom: 22px;
+        padding: 30px 24px;
+        background-color: #fff;
+        box-shadow: 0 10px 20px #efefef;
+        text-align: center;
+        transition: 0.3s all linear;
+
+        &:hover{
+            box-shadow: 0 10px 20px #dad8d8;
+        }
+    }
+
+    &-block__item:nth-of-type(n+4){
+        padding-bottom: 42px;
+    }
+
+    &-block__type{
+        height: 100px;
+        img{
+            @include img;
+            margin: auto;
+        }
+    }
+
+    &-block__title{
+        margin: 11px 0 3px 0;
+        @include text($gil,18px,null,none,$blockchainTitle,700,40px);
+        letter-spacing: 0.45px;
+    }
+
+    &-block__info{
+        @include text($gil,15px,null,none,$blockchainInfo,400,25px);
+        letter-spacing: 0.15px;
+    }
+}
+
+
+.team{
+    margin-top: 60px;
+    padding: 140px 0 110px 0;
+    background: url(../images/teamBg.png);
+    @include bg;
+
+    &__title{
+        @include title(#fff,titleLine);
+    }
+
+    &-block{
+        @include flex(null,space-between,null,null);
+    }
+
+    &-block:nth-of-type(1){
+        margin-top: 130px;
+    }
+
+    &-block:nth-of-type(2){
+        margin-top: 18px;
+        justify-content: center;
+
+        .team-member:nth-of-type(2){
+            margin-left: 180px;
+        }
+    }
+
+    &-member{
+        flex-basis: 280px;
+        text-align: center;
+        position: relative;
+        &:before{
+            content: "";
+            @include position(absolute, -100px,null,null,48%,null);
+            transform: translateX(-50%);
+            width: 490px;
+            height: 490px;
+            background: url(../images/teamBgPerson.png);
+            @include bg;
+            opacity: 0.2;
+        }
+
+        &__person{
+            position: relative;
+            z-index: 2;
+        }
+
+        p:nth-of-type(1){
+            @include text($gil,30px,null,none,#fff,700,40px);
+            letter-spacing: 0.75px;
+            margin: 23px 0 4px 0;
+        }
+
+        p:nth-of-type(2){
+            @include text($gil,18px,null,none,$teamPerson,400,25px);
+            letter-spacing: 0.45px;
+        }
+    }
+
+    &-partner{
+        margin-top: 65px;
+        padding-left: 22px;
+        @include flex(null,null,null, center);
+        position: relative;
+
+        &:before{
+            content: "";
+            @include position(absolute, null,null,null,0,null);
+            width: 2px;
+            height: 53px;
+            background-color: #fd634f;
+        }
+
+        span{
+            display: inline-block;
+            width: 400px;
+            @include text($gil,18px,null,none,#fff,400,25px);
+            letter-spacing: 0.45px;
+        }
+
+        a{
+            @include linkFull;
+            padding: 9px 32px;
+            margin-left: 70px;
+        }
+    }
+
+}

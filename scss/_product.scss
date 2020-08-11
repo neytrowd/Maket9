@@ -1,0 +1,408 @@
+.product{
+    margin-top: 95px;
+
+    &__title{
+        @include title($productTitle,titleLine);
+        margin: 0 0 18px -10px;
+    }
+
+    &-inner{
+        min-height: 2056px;
+        background: url(../images/productBg1.png);
+        @include bg;
+    }
+
+    // product block begin
+    &-block{
+        @include flex(null,space-between,null,null);
+        padding-top: 93px;
+
+        &-info{
+            flex-basis: 565px;
+        }
+
+        &__title{
+            margin-top: 22px;
+            @include text($gil,28px,uppercase,none,$productInfoTitle,700,40px);
+            letter-spacing: 0.7px;
+        }
+    }
+
+    &-block-timeline{
+        margin-top: 37px;
+        padding-left: 33px;
+        position: relative;
+
+        &:before{
+            content: "";
+            @include position(absolute, 30px,null,null,5px,null);
+            height: 75%;
+            width: 2px;
+            background-color: $productLine;
+        }
+    }
+
+    &-block-timeline__item{
+        position: relative;
+
+        &:before{
+            content: "";
+            @include position(absolute, 25px,null,null,-36px,null);
+            display: block;
+            width: 18px;
+            height: 18px;
+            border: 1px solid $productInfoTitle;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        &:after{
+            content: "";
+            @include position(absolute, 32px,null,null,-29px,null);
+            display: block;
+            width: 4px;
+            height: 4px;
+            background-color: $productInfoTitle;
+            border-radius: 50%;
+        }
+
+        p:nth-child(1){
+            @include text($gil,18px,null,null,$productInfoTitle,700,24px);
+        }
+
+        p:nth-child(2){
+            @include text($gil,15px,null,null,#000,400,25px);
+            letter-spacing: 0.15px;
+
+            span{
+                @include text(null,null,uppercase,null,$productBonus,700,25px);
+            }
+        }
+    }
+
+    &-block-timeline__item:nth-child(n+2){
+        margin-top: 21px;
+    }
+
+    &-block-bonus{
+        margin-top: 32px;
+        p:nth-child(1){
+            @include text($gil,18px,null,null,$productBonus,700,25px);
+        }
+
+        p:nth-child(2){
+            @include text($gil,15px,null,null,null,400,24px);
+            letter-spacing: 0.15px;
+            span{
+                text-transform: uppercase;
+            }
+        }
+    }
+    // product block end
+
+
+
+    // product process begin
+    &-process{
+        position: relative;
+        margin-top: 132px;
+        &__title{
+            @include title(#fff,titleLineWight);
+        }
+    }
+
+    &-process-block{
+
+        .product-process-arrows:nth-child(1){
+            .product-process__arrow:nth-child(1){
+                @include position(absolute,191px,null,null,24%,2);
+            }
+    
+            .product-process__arrow:nth-child(2){
+                @include position(absolute,191px,null,null,41%,2);
+            }
+            
+            .product-process__arrow:nth-child(3){
+                @include position(absolute,325px,null,null,45.7%,2);
+            }
+        }
+        
+        .product-process-arrows:nth-child(2){
+            .product-process__arrow:nth-child(1){
+                @include position(absolute,60%,null,null,18.5%,2);
+            }
+
+            .product-process__arrow:nth-child(2){
+                @include position(absolute,43%,null,null,34.7%,2);
+            }
+
+            .product-process__arrow:nth-child(3){
+                @include position(absolute,60%,null,null,44%,2);
+            }
+
+            .product-process__arrow:nth-child(4){
+                @include position(absolute,71.2%,null,null,34.8%,2);
+            }
+
+            .product-process__direction:nth-of-type(1){
+                @include position(absolute,57.3%,null,null,21%,null);
+            }
+
+            .product-process__direction:nth-of-type(2){
+                @include position(absolute,45.5%,null,null,33.6%,null);
+            }
+
+            .product-process__direction:nth-of-type(3){
+                @include position(absolute,57.3%,null,null,46.7%,null);
+            }
+
+            .product-process__direction:nth-of-type(4){
+                @include position(absolute,73%,null,null,33.7%,null);
+            }
+
+            .product-process__direction:nth-of-type(5){
+                @include position(absolute,61.5%,null,null,21%,null);
+            }
+
+        }
+
+    }
+
+    &-process-steps{
+        margin-top: 32px;
+    }
+
+    &-process-step{
+        @include flex(null,null,null,center);
+    }
+
+    &-process__item{
+        display: inline-block;
+        position: relative;
+        @include text($gil,18px,null,null,$productTitle,700,25px);
+
+        &:before{
+            content: "";
+            @include position(absolute, 7%,null,null,50%,3);
+            transform: translateX(-50%);
+            border: 20px solid #fff;
+            border-color: #fff transparent transparent transparent;
+            display: none;
+        }
+        
+        &:after{
+            content: "";
+            @include position(absolute,7.5%,null,null,50%,3);
+            transform: translateX(-50%);
+            border: 20px solid #fff;
+            border-color: transparent transparent #fff transparent;
+            display: none;
+        }
+
+
+        .product-process__type{
+            @include position(absolute, 70%,null,null,50%,null);
+            transform: translate(-50%, -50%);
+            width: 130%;
+            text-align: center;
+        }
+
+        &:hover .product-process-download,
+        &:hover:before,
+        &:hover:after{
+            display: block;
+            animation: action 0.6s linear forwards;
+        }
+
+        @keyframes action {
+            0%,20%{
+                opacity: 0;
+            }
+
+            100%{
+                opacity: 1;
+            }
+        }
+    }
+
+    &-process__item_center{
+
+        &:before,
+        &:after{
+            
+            border: none;
+        }
+
+        .product-process__type{
+            @include position(absolute, 49%,null,null,50%,null);
+            transform: translate(-50%, -50%);
+            letter-spacing: 0.35px;
+        }
+    }
+
+    &-process__number{
+        @include position(absolute, 46px,null,null,46px,2);
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        @include text($gil,18px,null,null,#fff,700,35px);
+    }
+
+    .product-process__direction{
+        @include text($gil,13px,uppercase,null,$productDirection,600,24px);
+    }
+
+    .product-process-download{
+        @include position(absolute, null,null,93%,50%,3);
+        transform: translateX(-50%);
+        width: 540px;
+        background-color: #fff;
+        padding: 48px 41px 53px 41px;
+        border-radius: 5px;
+        display: none;
+        
+        
+        &__title{
+            display: inline-block;
+            @include text($gil,18px,null,null,transparent,700,24px);
+            background-image: linear-gradient(-235deg, #f53f63 0%, #fd634f 100%);
+            -webkit-background-clip: text;
+            margin-bottom: 22px;
+        }
+
+        p{
+            @include text($gil,15px,null,null,$productDownload,400,26px);
+            span{
+                color: #f86174;
+                text-transform: uppercase;
+            }
+        }
+
+        p:nth-of-type(2){
+            margin-bottom: 42px;
+        }
+
+        a{
+            @include linkFull;
+            padding: 10px 27px;
+            border: 2px solid transparent;
+
+            &:hover{
+                @include link;
+                color: $productDownLink;
+            }
+        }
+
+        a:nth-of-type(1){
+            margin-right: 14px;
+        }
+    }
+
+    &-process-step:nth-child(1){
+        .product-process__item:nth-child(1){
+            margin: 0 115px 0 150px;
+        }
+    }
+    
+    &-process-step:nth-child(2){
+        margin-top: -52px;
+
+        .product-process__item:nth-child(1){
+            margin-left: auto;
+            .product-process__number{
+                background-color: #1ae0b9;
+            }
+        }
+
+        .product-process__item:nth-child(2){
+            margin: 0 110px 0 98px;
+        }
+
+        .product-process__item:nth-child(3){
+            .product-process__number{
+                background-color: #89bffc;
+            }
+            .product-process-download{
+                left: 20%;
+            }
+        }
+    }
+    
+    &-process-step:nth-child(3){
+        margin-top: 16px;
+
+        .product-process__item:nth-child(1){
+            .product-process__number{
+                background-color: #fe8b9b;
+            }
+            .product-process-download{
+                left: 80%;
+            }
+        }
+
+        .product-process__item:nth-child(2){
+            margin: 0 75px 0 60px;
+            .product-process__number{
+                background-color: #c393df;
+            }
+        }
+
+        .product-process__item:nth-child(3){
+            margin-right: 105px;
+            .product-process__number{
+                background-color: #fecc85;
+            }
+        }
+
+        .product-process__item:nth-child(4){
+           
+            .product-process__arrow:nth-child(1){
+                @include position(absolute,47%,123%,null,null,null);
+            }
+           
+            .product-process__arrow:nth-child(2){
+                @include position(absolute,-37%,45%,null,null,null);
+            }
+
+            .product-process__arrow:nth-child(3){
+                @include position(absolute,84%,44%,null,null,null);
+            }
+
+            .product-process__direction{
+                @include position(absolute,93%,32%,null,null,null);
+            }
+        }
+
+    }
+
+    &-process-step:nth-child(4){
+        .product-process__item:nth-child(1){
+            margin: 22px auto 0 295px;
+            p{
+                margin-top: 17px;
+                width: 80%;
+            }
+
+            .product-process__number{
+                background-color: #10dbb3;
+            }
+        }
+
+        .product-process__item:nth-child(2){
+            margin-top: -40px;
+            .product-process__number{
+                background-color: #fe8b9b;
+            }
+
+            .product-process-download{
+                left: 20%;
+            }
+        }
+    }
+
+    // product process end
+
+
+}

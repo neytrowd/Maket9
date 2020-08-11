@@ -1,0 +1,158 @@
+.header{
+    &-time{
+        background-image: linear-gradient(-220deg, #f53f63 0%, 
+                                                   #fd634f 100%);
+    }
+
+    &-time-block{
+        padding: 8px 0;
+        @include flex(null,center,null,center);
+        position: relative;
+
+        span:nth-of-type(1){
+            @include text($gil,15px,null,null,#fff,400,28px);
+            letter-spacing: 0.38px;
+            margin: 0 10px 0 16px;
+        }
+
+        span:nth-of-type(2){
+            @include text($gil,15px,null,null,#fff,700,28px);
+            letter-spacing: 0.7px;
+            word-spacing: -0.8px;
+        }
+
+        a{
+            @include position(absolute, 9px,0,null,null,null);
+            @include text(null,25px,null,none,#fff,700,28px);
+            transform: rotate(45deg);
+            transform-origin: 50% 50%;
+        }
+    }
+
+    &-block{
+        min-height: 725px;
+        background: url(../images/header_Bg.png);
+        @include bg;
+    }
+
+    &-block-inner{
+        position: relative;
+    }
+
+    &-link{
+        padding-top: 22px;
+        @include flex(null,null,null,center);
+    }
+
+    &-nav-list{
+        margin-left: 116px;
+        list-style: none;
+        li{
+            display: inline-block;
+        }
+
+        &__item{
+            @include text($gil,14px,null,none,#fff,700,28px);
+            letter-spacing: 0.3px;
+            margin-right: 21px;
+        }
+    }
+
+    &__use{
+        @include link;
+        margin: -5px 0 0 auto;
+        padding: 7px 44px;
+    }
+
+    &-info{
+        margin-top: 138px;
+        width: 700px;
+
+        &__title{
+            @include text($gil,45px,uppercase,none,#fff,700,54px);
+            letter-spacing: 0.8px;
+            position: relative;
+            span{
+                color: $headerTitle;
+            }
+
+            &:nth-child(1):before{
+                content: "";
+                @include position(absolute, 185px,null,null,null,null);
+                width: 70px;
+                height: 2px;
+                border-radius: 1px;
+                background-color: #fff;
+                opacity: 0.3;
+            }
+        }
+
+        &__data{
+            width: 80%;
+            margin-top: 53px;
+            @include text($gil,15px,none,none,#fff,400,24px);
+        }
+
+        &__link{
+            margin-top: 30px;
+            @include linkArrow;
+        }
+    }
+
+    &__milk{
+        @include position(absolute, 120px,-80px,null,null,null);
+
+        &:before{
+            content: "";
+            @include position(absolute, 20px,null,null,250px,null);
+            box-shadow: 0 0 5px 3px#fff,
+                        0 0 10px 5px #fff,
+                        0 0 25px 10px #fff,
+                        0 0 25px 10px #fff,
+                        0 0 40px 15px $headerLight,
+                        0 0 60px 20px $headerLight,
+                        0 0 80px 25px $headerLight,
+                        0 0 100px 30px $headerLight,
+                        0 0 110px 34px $headerLight;
+        }
+    }
+
+}
+
+
+.partner{
+    padding-top: 35px;
+    @include flex(null,null,null,center);
+
+    &__title{
+        @include text($gil,20px,none,none,$partnerTitle,700,24px);
+        @include position(relative, null,null,null,null,1);
+    }
+
+    &-list{
+        list-style: none;
+        @include flex(null,null,null,center);
+        margin-left: -20px;
+
+        li:nth-child(2){
+            margin-right: 55px;
+        }
+
+        li:nth-child(3){
+            margin-right: 75px;
+        }
+
+        li:nth-child(n+4){
+            margin-right: 60px;
+        }
+    }
+
+    img{
+        filter: grayscale(100%);
+
+        &:hover{
+            filter: unset;
+        }
+    }
+
+}

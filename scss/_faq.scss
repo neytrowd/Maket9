@@ -1,0 +1,163 @@
+.faq{
+    background: url(../images/faqBg.png);
+    @include bg;
+    padding: 62px 0 65px 0;
+
+    // faq info begin
+    &-info__title{
+        @include title($productTitle,titleLine);
+    }
+
+    &-info-block{
+        margin-top: 81px;
+    }
+
+    &-info__item:nth-child(n+2){
+        margin-top: 4px;
+    }
+
+    &-info__checker{
+        display: none;
+
+        &:checked ~ .faq-info__lab:before{
+            transform: rotate(405deg);
+        }
+
+        &:checked ~ .faq-info-data{
+            height: 255px;
+            padding: 40px 85px 34px 98px;
+        }
+    }
+
+    &-info__lab{
+        display: inline-block;
+        width: 100%;
+        padding: 16px 0 14px 58px;
+        margin-bottom: 0.8px;
+        @include text($gil,18px,null,none,$faqInfo,700,40px);
+        letter-spacing: 0.45px;
+        box-shadow: 0 0 2px 2px rgba(239, 239, 239, 0.6);
+        cursor: pointer;
+        position: relative;
+
+        &:before{
+            content: "+";
+            @include position(absolute, 18px,37px,null,null,null);
+            transform-origin: 50% 50%;
+            @include text(null,37px,null,none,$faqInfoPlus,500,40px);
+            transition: 0.3s all linear;
+        }
+    }
+
+    &-info-data{
+        position: relative;
+        padding: 0 85px 0 98px;
+        @include text($gil,15px,null,none,$faqInfo,400,26px);
+        letter-spacing: 0.38px;
+        overflow: hidden;
+        height: 0;
+        transition: 0.5s all linear;
+
+
+        &:before{
+            content: "";
+            @include position(absolute, 13px,null,null,59px,null);
+            width: 2px;
+            height: 230px;
+            background-image: linear-gradient(-108deg, #2fe097 0%, #a3cbf2 100%);
+        }
+
+        p:nth-child(1){
+            margin-bottom: 25px;
+        }
+
+        span{
+            color: $faqInfoRub;
+        }
+    }
+    // faq info end
+    
+
+    // faq form begin
+
+    &-form{
+        max-width: 656px;
+        margin: auto;
+    }
+
+    &-form__title{
+        @include title($productTitle,titleLine);
+        letter-spacing: 0.7px;
+        margin: 115px 0 101px 15px;
+    }
+
+    &-form-block{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        span{
+            position: relative;
+        }
+
+        span:nth-child(1),
+        span:nth-child(2){
+            flex-basis: 309px;
+            margin-bottom: 66px;
+        }
+
+        span:nth-child(3){
+            flex-basis: 100%;
+        }
+
+        span:nth-child(4){
+            margin: 48px 0 0 auto;
+
+            &:before{
+                content: "";
+                position: absolute;
+                z-index: 2;
+                top: 16px;
+                right: 18px;
+                border: 6px solid #fff;
+                border-color: transparent transparent transparent #fff;
+            }
+        }
+
+        input{
+            width: 100%;
+            @include text($gil,15px,null,none,$faqInfo,400,null);    
+            outline: none;
+
+            &:focus ~ label{
+                top: -20px;
+                opacity: 0.3;
+            }
+        }
+
+        input[type="text"],
+        input[type="email"]{
+            padding: 15px 0;
+            border-color: transparent 
+                          transparent 
+                          #c9c9c9 
+                          transparent;
+        }
+
+        input[type="submit"]{
+            border: none;
+            cursor: pointer;
+            @include linkArrow;
+        }
+
+        label{
+            position: absolute;
+            top: 5px;
+            left: 3px;
+            @include text($gil,15px,null,none,$faqFormLab,600,40px);
+            transition: 0.2s all linear;
+        }
+    }
+    
+    // faq form end
+}

@@ -1,0 +1,140 @@
+@mixin title($color,$line) {
+    @include text($gil,28px,uppercase,none,$color,900,24px);
+    letter-spacing: 0.9px;
+    word-spacing: -1px;
+    margin-left: -10px;
+    text-align: center;
+    position: relative;
+
+    &:before{
+        content: "";
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 10px;
+        width: 104px;
+        background: url(../images/#{$line}.png);
+    }
+}
+
+@mixin link {
+    @include text($gil,15px,null,none,#fff,700,28px);
+    letter-spacing: 0.2px;
+    border: 2px solid #ee3e6f;
+    border-radius: 23px;
+    background: none;
+}
+
+@mixin linkFull {
+    @include text($gil,15px,null,none,#fff,700,28px);
+    letter-spacing: 0.2px;
+    border-radius: 23px;
+    background: linear-gradient(-52deg, #fe8448 0%, #ee3e6f 100%);
+    background-size: 100%;
+}
+
+@mixin linkArrow {
+    display: inline-block;
+    @include text($gil,15px,none,none,#fff,400,24px);
+    padding: 10px 62px 10px 44px;
+    border-radius: 23px;
+    background-image: linear-gradient(-52deg, #fe8448 0%, #ee3e6f 100%);
+    box-shadow: 0 8px 13px rgba(252, 65, 87, 0.28), 
+                0 0 32px rgba(253, 144, 126, 0.1);
+    position: relative;
+
+    &:before{
+        content: "";
+        position: absolute;
+        top: 16px;
+        right: 18px;
+        border: 6px solid #fff;
+        border-color: transparent transparent transparent #fff;
+    }
+}
+
+@mixin flex($fDir,$jCon,$fWrap,$aItm) {
+    display: flex;
+    @if $fDir != null {
+        flex-direction: $fDir;
+    }  
+    @if $jCon != null {
+        justify-content: $jCon;
+    }
+    @if $fWrap != null {
+        flex-wrap: $fWrap;
+    }  
+    @if $aItm != null {
+        align-items: $aItm;
+    }
+}
+
+@mixin  text($fFamily,$fSize,$transform,$decoration,$color,$fWeight,$lHeigth){
+    font-family: $fFamily;
+    font-size: $fSize;
+    text-transform: $transform;
+    text-decoration: $decoration;
+    color: $color;
+    font-weight: $fWeight;
+    line-height: $lHeigth;
+}
+
+@mixin  position($pos,$top,$right,$bottom,$left,$zIndex) {
+    position: $pos;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: $zIndex;
+}
+
+@mixin img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+@mixin  bg {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+@mixin center($position) {
+    position: absolute;
+    
+    @if $position == 'vertical' {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    @else if $position == 'horizontal' {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @else if $position == 'both' {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+}
+
+// fontFace begin
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+    @font-face {
+      font-family: "#{$font-name}";
+      src: url($file-name + '.eot');
+      src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+      url($file-name + '.woff') format('woff'),
+      url($file-name + '.woff2') format('woff2'),
+      url($file-name + '.ttf')  format('truetype');
+      font-weight: $weight;
+      font-style: $style;
+    }
+}
+// fontFace end
+
+@mixin truncateText($overflow: ellipsis){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: $overflow;
+}
